@@ -4,7 +4,7 @@ exports.getTodo = async (req, res) => {
   try {
     // fetch all items from database
     const todos = await todo.find({});
-
+      console.log(todos)
     // response update
     res.status(200).json({
       success: true,
@@ -25,7 +25,7 @@ exports.getTodoById = async (req, res) => {
   try {
     // extract todoitems by id
     const id = req.params.id;
-    const todo = await Todo.find({_id: id, });
+    const todo = await todo.find({_id: id, });
 
     if(!todo){
         return res.status(404).json({
@@ -39,7 +39,7 @@ exports.getTodoById = async (req, res) => {
         message:`todo ${id } data succesfully transferred`
     })
   } catch (err) {
-    console.err(err)
+    // console.err(err)
     console.log(err);
     res.status(500).json({
       success: false,

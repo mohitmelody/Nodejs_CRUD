@@ -4,7 +4,7 @@ exports.updateTodo = async (req, res) => {
   try {
     const { id } = req.params;
     const { tittle, description } = req.body;
-    const todo = await todo.findByIdAndUpdate(
+    const todos = await todo.findByIdAndUpdate(
       { _id: id },
       {
         tittle,
@@ -14,7 +14,7 @@ exports.updateTodo = async (req, res) => {
     )
     res.status(200).json({
         success: true,
-        data: todo,
+        data: todos,
         message: "update successful ",
   })
  } catch (err) {

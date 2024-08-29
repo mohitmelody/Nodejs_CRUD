@@ -15,7 +15,7 @@ exports.createTodo = async (req, res) => {
       message: "Entry created succesful",
     });
   } catch (err) {
-    console.err(err);
+
     console.log(err);
     res.status(500).json({
       success: false,

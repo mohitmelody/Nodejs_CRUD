@@ -1,26 +1,28 @@
 const mongoose = require("mongoose");
 
+// Define a Mongoose schema for your "todo" collection
 const todoSchema = new mongoose.Schema({
-  tittle: {
+  title: {
     type: String,
-    required: true,
-    maxLength: 50,
+    required: true, // The title is mandatory for each todo item
+    maxLength: 50, // Keep it concise and within a reasonable length
   },
   description: {
     type: String,
-    required: true,
-    maxLength: 50,
+    required: true, // A description is also required
+    maxLength: 50, // Again, let's keep it succinct
   },
   createdAt: {
     type: Date,
     required: true,
-    default: Date.now(),
+    default: Date.now(), // Set the creation timestamp automatically
   },
   updatedAt: {
     type: Date,
     required: true,
-    default: Date.now(),
+    default: Date.now(), // Also set the update timestamp by default
   },
 });
 
-module.exports = mongoose.model("todo", todoSchema)
+// Create a model based on the schema
+module.exports = mongoose.model("todo", todoSchema);

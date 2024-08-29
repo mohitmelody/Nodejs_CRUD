@@ -1,29 +1,29 @@
 const express = require("express");
 const app = express();
 
-//  data ko parser
-app.use(express.json());
+// Middleware to parse URL-encoded data (e.g., form submissions)
+app.use(express.urlencoded({ extended: true }));
 
-require("dotenv").config();
-const PORT = process.env.port || 4000;
-//  bad practise
-// let port = 8080;
-// app.listen(8080, () => {
-//   console.log(`app is listenting on ${port}`);
-// });
-
-const todoRoutes = require("./routes/todo");
-app.use("/api/v1", todoRoutes);
-app.listen(PORT, () => {
-  console.log(`app is listenting on ${PORT}`);
+// Load environment variables from a file (assuming it's named ".env")
+require("dotenv").config({
+  path: "./env",
 });
-//
 
-// connet to db
-const dbConnect = require("./config/database");
+// Define the port for your Express app
+const Port = process.env.Port || 4000;
+app.listen(Port, () => {
+  console.log(`App is listening on port ${Port}`);
+});
+
+// Import and use your todo routes
+const todoRoutes = require("./routes/todo.js");
+app.use("/api/v1", todoRoutes);
+
+// Connect to your database
+const dbConnect = require("./config/database.js");
 dbConnect();
 
-//  default route
+// Define a simple homepage route
 app.get("/", (req, res) => {
-  res.send(`<h1> this is my homepage</h1>`);
+  res.send("This is my homepage");
 });
