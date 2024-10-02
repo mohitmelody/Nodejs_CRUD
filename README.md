@@ -27,7 +27,7 @@ This repository contains a simple CRUD (Create, Read, Update, Delete) applicatio
 
 3. **Set up the database:**
 
-    - Ensure you have MySQL installed and running.
+    - Ensure you have Mongodb local or Mongodb atlas installed and running.
     - Create a database named `crud_db`.
     - Update the database configuration in `config/db.js` with your MySQL credentials.
 
