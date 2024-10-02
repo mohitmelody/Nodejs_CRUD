@@ -46,7 +46,7 @@ Once the application is running, you can interact with the API using tools like 
 - **Create a new record:**
 
     ```http
-    POST /api/records
+    POST /api/v1/createTodo
     ```
 
     **Request Body:**
@@ -61,13 +61,13 @@ Once the application is running, you can interact with the API using tools like 
 - **Read all records:**
 
     ```http
-    GET /api/records
+    GET /api/v1/getTodo
     ```
 
 - **Read a single record:**
 
     ```http
-    GET /api/records/:id
+    GET /api/v1getTodoById/:id
     ```
 
 - **Update a record:**
@@ -88,13 +88,10 @@ Once the application is running, you can interact with the API using tools like 
 - **Delete a record:**
 
     ```http
-    DELETE /api/records/:id
+    DELETE /api/deleteTodo/:id
     ```
 
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
